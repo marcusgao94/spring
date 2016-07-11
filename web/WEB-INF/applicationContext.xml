@@ -11,6 +11,6 @@
     <context:component-scan base-package="com.myapp"/>
     <context:annotation-config/>
 
-    <import resource="mongodbContext.xml" />
+    <import resource="mongoContext.xml" />
 
 </beans>
