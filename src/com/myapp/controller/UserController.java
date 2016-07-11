@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @RequestMapping(value="/user/save", method = RequestMethod.POST)
-    public @ResponseBody String saveUser(User user) {
+    public @ResponseBody String saveUser(@RequestBody User user) {
         userService.saveUser(user);
         return "ProductView";
     }

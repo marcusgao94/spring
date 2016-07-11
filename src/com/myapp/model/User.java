@@ -10,15 +10,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class User {
     @Id
-    String id;
-    String firstName;
-    String lastName;
-    String gender;
-
-    @Override
-    public String toString() {
-        return "Person [id = " + id + ", firstName = " + firstName + ", lastName = " + lastName + "]";
-    }
+    private String id;
+    private String email;
+    private String firstName;
+    private String lastName;
+    private String gender;
 
     public String getId() {
         return id;
@@ -26,6 +22,14 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getFirstName() {

@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
     private static Log logger = LogFactory.getLog(UserServiceImpl.class);
 
     @Override
-    public boolean saveUser(@RequestBody User user) {
+    public boolean saveUser(User user) {
         logger.info("save user");
         return userDao.saveUser(user);
     }
