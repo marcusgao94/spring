@@ -8,15 +8,12 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by gy on 16/7/8.
  */
-@Controller
+@RestController
 public class UserController {
 
     @Autowired
@@ -25,15 +22,8 @@ public class UserController {
     private static final Log logger = LogFactory
             .getLog(UserController.class);
 
-    @RequestMapping(value = "/register")
-    public String register() {
-        logger.info("register called");
-        return "/static/view/register.html";
-    }
-
     @RequestMapping(value="/user/save", method = RequestMethod.POST)
-    public @ResponseBody String saveUser(@RequestBody User user) {
-        userService.saveUser(user);
-        return "ProductView";
+    public Boolean saveUser(@RequestBody User user) {
+        return userService.saveUser(user);
     }
 }
