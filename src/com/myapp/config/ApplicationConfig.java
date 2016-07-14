@@ -5,12 +5,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 /**
- * Created by gy on 16/7/13.
+ * Created by gy on 16/7/14.
  */
 
 @Configuration
-@ComponentScan(basePackages = "com.myapp")
+@ComponentScan("com.myapp")
 @Import(MongoContext.class)
-public class ApplicationContext {
-
+public class ApplicationConfig {
 }
