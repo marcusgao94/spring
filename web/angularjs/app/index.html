@@ -6,13 +6,19 @@
     <title>My AngularJS App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="app.css">
 </head>
 <body ng-app="myApp">
 Hello World
-<a href="view1/register.html">view1</a>
+<a href="/register">register</a>
+<a href="/login">login</a>
+
+<div ng-view> </div>
 
 </body>
-<script src="angular-resource.js"></script>
-<script src="app.js"></script>
+<script src="/static/angular.js"></script>
+<script src="/static/angular-resource.js"></script>
+<script src="/static/angular-route.js"></script>
+<script src="/static/app.js"></script>
+<script src="/static/controller/UserController.js"></script>
+<script src="/static/service/UserService.js"></script>
 </html>

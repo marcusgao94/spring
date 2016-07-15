@@ -14,16 +14,16 @@ public class IndexController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String getIndexPage() {
-        return "/static/index.html";
+        return "index";
     }
 
     @RequestMapping(value = "register", method = RequestMethod.GET)
     public String register() {
-        return "/static/view/register.html";
+        return "view/register";
     }
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String login() {
-        return "/static/view/login.html";
+        return "view/login";
     }
 }
