@@ -1,6 +1,7 @@
 package com.myapp.config;
 
 
+import com.myapp.config.security.SecurityConfig;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -16,7 +17,7 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext container) {
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-        rootContext.register(ApplicationConfig.class);
+        rootContext.register(ApplicationConfig.class, SecurityConfig.class);
 
         container.addListener(new ContextLoaderListener(rootContext));
 

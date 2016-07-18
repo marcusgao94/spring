@@ -13,6 +13,10 @@ angular.module('myApp')
             save: {
                 url: 'user/save',
                 method: 'POST'
+            },
+            login: {
+                url: 'signin',
+                method: 'POST'
             }
         })
     });

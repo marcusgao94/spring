@@ -1,5 +1,18 @@
 Spring version 4.3.2
 
+# Spring dispatcher
+
+see [dispatcherServlet.java](https://github.com/marcusgao94/spring/blob/master/src/com/myapp/config/DispatcherServlet.java). The process of handling a URL request, for example ```/register``` is:
+
+1.
+  The ```@RequestMapping``` in [IndexController](https://github.com/marcusgao94/spring/blob/master/src/com/myapp/controller/IndexController.java) intercepts this URL, and returns ```view/register```
+
+2.
+  The ```viewResolver``` bean adds ```/static/``` as a prefix and ```.html``` as suffix for the return result ```view/register``` from IndexController.
+
+3.
+  The ```addResourceHandlers``` gets the whole result ```/static/view/register.html``` from viewResolver bean, then maps it to location ```/angularjs/app```.
+
 # Spring and Mongodb
 
 use this lib for mongo in java, read [installation guide](http://mongodb.github.io/mongo-java-driver/3.2/driver/getting-started/installation-guide/) carefully, the download link is at the bottom of the page.
@@ -46,3 +59,14 @@ load the spring security config file in ```rootContext.register(ApplicationConfi
 need [ngResource](https://docs.angularjs.org/api/ngResource) module 
 
 $resource is a non-synchronized method, so use ```$promise.then``` to wait until it finished processing. See ```$scope.save``` function in [UserController.js](https://github.com/marcusgao94/spring/blob/master/web/angularjs/app/controller/UserController.js)
+
+# AngularJS ngRoute
+
+need [ngRoute](https://docs.angularjs.org/api/ngRoute) module
+
+see [app.js](https://github.com/marcusgao94/spring/blob/master/web/angularjs/app/app.js) for config example
+
+There must be only one ```ng-view``` in the whole app, generally it is in [index.html](https://github.com/marcusgao94/spring/blob/master/web/angularjs/app/index.html)
+
+The ```$routeProvider``` maps a URL to a correspond templateUrl, which would send to the server. After analyzing this templateUrl by controller and the [dispatcherServlet](https://github.com/marcusgao94/spring/blob/master/src/com/myapp/config/DispatcherServlet.java) mechanism, the server renders an html page to the client. Finally this html will be shown in the position of ng-view in [index.html](https://github.com/marcusgao94/spring/blob/master/web/angularjs/app/index.html)
+

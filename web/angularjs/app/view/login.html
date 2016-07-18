@@ -1,22 +1,7 @@
-<!doctype html>
-<html>
-<head>
-    <title>Hello AngularJS</title>
-    <!-- link href="css/angular-bootstrap.css" rel="stylesheet" -->
-</head>
-
-<body ng-app="myApp" ng-controller="userCtrl">
-<form ng-submit="login(credentials)">
+<form ng-submit="userCtrl.login(credentials)">
     <label>User</label>
     <input type="text" name="username" ng-model="credentials.username"/>
     <label>password</label>
     <input type="password" name="password" ng-model="credentials.password"/>
     <input type="submit" value="Login" />
 </form>
-<script src="/static/angular.js"></script>
-<script src="/static/angular-resource.js"></script>
-<script src="/static/app.js"></script>
-<script src="/static/controller/UserController.js"></script>
-<script src="/static/service/UserService.js"></script>
-</body>
-</html>

@@ -4,22 +4,26 @@
 
 'use strict';
 angular.module('myApp')
-    .controller('userCtrl', function($scope, userService) {
-        $scope.greeting = 'hello';
+    .controller('UserCtrl', function($scope, userService) {
+        this.greeting = 'hello world';
 
-        $scope.register = function(user) {
-            var s = userService.save({}, JSON.stringify({
+        this.register = function (user) {
+            var t = userService.save({}, JSON.stringify({
                 email: user.email,
-                firstName: user.firstName,
-                lastName: user.lastName,
+                username: user.username,
+                password: user.password,
                 gender: user.gender
             }));
-            s.$promise.then(function () {
-                console.log('success');
+            t.$promise.then(function () {
+                console.log("register success");
             })
         };
-        
-        $scope.login = function(credentials) {
-            console.log('aa');
-        };
+
+        this.login = function(credentials) {
+            var t = userService.login({}, {
+                username: credentials.username,
+                password: credentials.password
+            });
+        }
+
     });

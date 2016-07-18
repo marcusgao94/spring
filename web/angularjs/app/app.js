@@ -6,10 +6,13 @@ angular.module('myApp', ['ngResource', 'ngRoute'])
         $routeProvider
             .when('/register', {
                 templateUrl: 'register',
-                controller: 'userCtrl'
+                controller: 'UserCtrl as userCtrl'
             })
             .when('/login', {
-                templateUrl: 'login',
-                controller: 'userCtrl'
-            });
+                templateUrl: 'loginpage',
+                controller: 'UserCtrl as userCtrl'
+            })
+            .when('/forum', {
+                templateUrl: 'secure/forum'
+            })
     });

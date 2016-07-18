@@ -1,5 +1,6 @@
 package com.myapp.controller;
 
+import com.myapp.config.Constant;
 import com.myapp.model.User;
 import com.myapp.service.UserService;
 import com.myapp.service.UserServiceImpl;
@@ -24,6 +25,7 @@ public class UserController {
 
     @RequestMapping(value="/user/save", method = RequestMethod.POST)
     public Boolean saveUser(@RequestBody User user) {
+        user.setRole(Constant.COMMON_USER);
         return userService.saveUser(user);
     }
 }

@@ -5,6 +5,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
@@ -29,5 +31,15 @@ public class UserDaoImpl implements UserDao {
         logger.info("save user");
         mongoTemplate.insert(user);
         return true;
+    }
+
+    @Override
+    public User getUserByEmailOrUsername(String username) {
+        Criteria criteria = new Criteria();
+        criteria.orOperator(
+                Criteria.where("username").is(username),
+                Criteria.where("email").is(username));
+        Query query = new Query(criteria);
+        return mongoTemplate.findOne(query, User.class);
     }
 }

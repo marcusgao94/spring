@@ -22,7 +22,7 @@ public class IndexController {
         return "view/register";
     }
 
-    @RequestMapping(value = "login", method = RequestMethod.GET)
+    @RequestMapping(value = "loginpage", method = RequestMethod.GET)
     public String login() {
         return "view/login";
     }

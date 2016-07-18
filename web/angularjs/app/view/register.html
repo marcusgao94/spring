@@ -1,28 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>register</title>
-</head>
-<body ng-app="myApp" ng-controller="userCtrl">
 <div>
     <form novalidate class="simple-form">
         E-mail: <input type="email" ng-model="user.email"/><br/>
-        First Name: <input type="text" ng-model="user.firstName"/><br/>
-        Last Name: <input type="text" ng-model="user.lastName"/><br/>
+        Username: <input type="text" ng-model="user.username"/><br/>
+        password: <input type="password" ng-model="user.password"/><br/>
         Gender: <input type="radio" ng-model="user.gender" value="male"/>male
         <input type="radio" ng-model="user.gender" value="female"/>female<br/>
         <input type="button" ng-click="reset()" value="Reset"/>
-        <input type="submit" ng-click="register(user)" value="Save"/>
+        <input type="submit" ng-click="userCtrl.register(user)" value="Save"/>
     </form>
+    {{ userCtrl.greeting }}
 </div>
-
-<script src="/static/angular.js"></script>
-<script src="/static/angular-resource.js"></script>
-<script src="/static/app.js"></script>
-<script src="/static/controller/UserController.js"></script>
-<script src="/static/service/UserService.js"></script>
-
-</body>
-
-</html>

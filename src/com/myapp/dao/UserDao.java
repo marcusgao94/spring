@@ -8,4 +8,6 @@ import com.myapp.model.User;
 public interface UserDao {
 
     public Boolean saveUser(User user);
+    public User getUserByEmailOrUsername(String username);
+
 }
