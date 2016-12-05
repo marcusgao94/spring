@@ -1,3 +1,7 @@
+/**
+ * Created by gy on 16/7/8.
+ */
+
 package com.myapp.controller;
 
 import com.myapp.config.Constant;
@@ -11,9 +15,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * Created by gy on 16/7/8.
- */
+import java.util.Arrays;
+
 @RestController
 public class UserController {
 
@@ -28,4 +31,11 @@ public class UserController {
         user.setRole(Constant.COMMON_USER);
         return userService.saveUser(user);
     }
+
+    @RequestMapping(value="/user/isEmailExist", method = RequestMethod.POST)
+    public Boolean isEmailExist(String email) {
+        return (userService.getUserByEmail(email) != null);
+    }
+
+
 }

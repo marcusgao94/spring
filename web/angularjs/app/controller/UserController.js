@@ -8,10 +8,21 @@ angular.module('myApp')
         this.greeting = 'hello world';
 
         this.register = function (user) {
+            var exist = userService.isExist({}, JSON.stringify({
+                email: user.email
+            }));
+            exist.$promise.then(function () {
+                alert('email exists');
+                return ;
+            });
+            if (user.password != user.passwordConfirm) {
+                alert('confirm password');
+                return ;
+            }
             var t = userService.save({}, JSON.stringify({
                 email: user.email,
                 username: user.username,
-                password: user.password,
+                password: CryptoJS.MD5(user.password).toString(),
                 gender: user.gender
             }));
             t.$promise.then(function () {
@@ -22,7 +33,7 @@ angular.module('myApp')
         this.login = function(credentials) {
             var t = userService.login({}, {
                 username: credentials.username,
-                password: credentials.password
+                password: CryptoJS.MD5(credentials.password).toString()
             });
         }
 

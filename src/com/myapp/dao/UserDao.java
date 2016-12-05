@@ -9,5 +9,6 @@ public interface UserDao {
 
     public Boolean saveUser(User user);
     public User getUserByEmailOrUsername(String username);
+    public User getUserByEmail(String username);
 
 }

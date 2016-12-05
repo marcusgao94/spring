@@ -7,4 +7,5 @@ import com.myapp.model.User;
  */
 public interface UserService {
     public boolean saveUser(User user);
+    public User getUserByEmail(String email);
 }

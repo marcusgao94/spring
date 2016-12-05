@@ -11,11 +11,15 @@ angular.module('myApp')
                 cache: true
             },
             save: {
-                url: 'user/save',
+                url: SAVEUSER,
                 method: 'POST'
             },
             login: {
-                url: 'signin',
+                url: SIGNIN,
+                method: 'POST'
+            },
+            isExist: {
+                url:  ISEMAILEXIST,
                 method: 'POST'
             }
         })

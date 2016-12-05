@@ -24,4 +24,9 @@ public class UserServiceImpl implements UserService {
         logger.info("save user");
         return userDao.saveUser(user);
     }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userDao.getUserByEmail(email);
+    }
 }
